@@ -8,4 +8,11 @@ function getComputerChoice() {
     return gesteAleatoire;
 }
 
-console.log(getComputerChoice())
+// console.log(getComputerChoice())
+
+function getHumanChoice() {
+    let gesteJoueur = prompt("Pierre, feuille ou ciseaux: ").toLowerCase().trim()
+    return gesteJoueur;
+}
+
+console.log(getHumanChoice());
