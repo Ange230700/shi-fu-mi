@@ -1,1 +1,11 @@
-console.log("Hello World");
+// console.log("Hello World");
+
+const gestesPossibles = ["pierre", "papier", "ciseaux"];
+
+function getComputerChoice() {
+    const indexAleatoire = Math.floor(Math.random() * gestesPossibles.length);
+    const gesteAleatoire = gestesPossibles[indexAleatoire];
+    return gesteAleatoire;
+}
+
+console.log(getComputerChoice())
