@@ -1,5 +1,3 @@
-// console.log("Hello World");
-
 const gestesPossibles = ["pierre", "papier", "ciseaux"];
 let humanScore = 0;
 let computerScore = 0;
@@ -10,10 +8,8 @@ function getComputerChoice() {
   return gesteAleatoire;
 }
 
-// console.log(getComputerChoice())
-
 function getHumanChoice() {
-  let saisieUtilisateur = prompt("Pierre, papier ou ciseaux: ");
+  let saisieUtilisateur = prompt("pierre, papier ou ciseaux: ");
   if (saisieUtilisateur === null) {
     console.log("Jeu annulé!");
     return;
@@ -24,8 +20,6 @@ function getHumanChoice() {
   }
   return gesteJoueur;
 }
-
-// console.log(getHumanChoice());
 
 function playRound(humanChoice, computerChoice) {
   if (humanChoice === computerChoice) {
@@ -99,7 +93,24 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
 
-playRound(humanSelection, "pierre");
+function playGame(nombreTours = 5) {
+    for (let numeroTour = 0 ; numeroTour < nombreTours ; numeroTour++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    }
+    console.log(
+      "Score final: Joueur(" + humanScore + ") - machine(" + computerScore + ")"
+    );
+
+    if (computerScore === humanScore) {
+        console.log("La partie est nulle.");
+    } else if (computerScore < humanScore) {
+        console.log("Le joueur gagne la partie.");
+    } else {
+        console.log("La machine gagne la partie.");
+    }
+}
+
+playGame();
